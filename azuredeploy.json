@@ -1775,7 +1775,7 @@
             "properties": {
               "mode": "incremental",
               "templateLink": {
-                 "uri":"https://raw.githubusercontent.com/Azure/fedramp-iaas-webapp/master/externaltemplates/ConfigureSQL.json",
+                 "uri":"https://raw.githubusercontent.com/jayangra/fedramp-iaas-webapp/master/externaltemplates/ConfigureSQL.json",
                  "contentVersion":"1.0.0.0"
               },
               "parameters": {
