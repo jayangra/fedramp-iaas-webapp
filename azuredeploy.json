@@ -1470,7 +1470,7 @@
             ],
             "copy": {
                 "name": "monitorVMLoopWEB",
-                "count": "[variables('numberOfWebInstances')]"
+                "count": "4"
             },
             "properties": {
                 "mode": "Incremental",
