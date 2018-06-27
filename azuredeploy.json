@@ -420,61 +420,52 @@
         "virtualNetworkAddressRange": "10.200.0.0/16",
         "virtualNetworkNameWithSuffix": "[concat('autohav2VNET', uniqueString(resourceGroup().id))]",
         "resourceNames": {
-            "alwaysOnDnsPrefix": "aodns",
             "gatewaySkuName": "WAF_Medium",
-            "omsWorkspace": "[substring(concat(uniqueString(resourceGroup().id), 'ws', parameters('environmentPrefix')), 5)]",
-            "automationAccount": "[substring(concat(uniqueString(resourceGroup().id), 'aa', parameters('environmentPrefix')), 5)]",
+            "omsWorkspace": "[substring(concat(uniqueString(resourceGroup().id), 'ws'), 5)]",
+            "automationAccount": "[substring(concat(uniqueString(resourceGroup().id), 'aa'), 5)]",
             "recoveryServicesVault": "AZ-RCV-01",
             "automationSchedule": "VM-Patching-Schedule",
             "virtualNetworkNameWithSuffix": "[concat('autohav2VNET', uniqueString(resourceGroup().id))]",
             "nsgs": {
-                "mgt": "[concat('MGTNSG', parameters('environmentPrefix'))]",
-                "dc": "[concat('DCNSG', parameters('environmentPrefix'))]",
-                "web": "[concat('WEBNSG', parameters('environmentPrefix'))]",
-                "sql": "[concat('SQLNSG', parameters('environmentPrefix'))]",
-                "lb": "[concat('LBNSG', parameters('environmentPrefix'))]"
+                "mgt": "MGTNSG",
+                "dc": "DCNSG",
+                "web": "WEBNSG",
+                "sql": "SQLNSG",
+                "lb": "LBNSG"
             },
             "storageAccounts": {
-                "sql": "[concat(uniqueString(resourceGroup().id), 'sql', parameters('environmentPrefix'))]",
-                "dc": "[concat(uniqueString(resourceGroup().id), 'dc', parameters('environmentPrefix'))]",
-                "web": "[concat(uniqueString(resourceGroup().id), 'web', parameters('environmentPrefix'))]",
-                "mgt": "[concat(uniqueString(resourceGroup().id), 'mgt', parameters('environmentPrefix'))]"
+                "dc": "[concat(uniqueString(resourceGroup().id), 'dc')]",
+                "web": "[concat(uniqueString(resourceGroup().id), 'web')]",
+                "mgt": "[concat(uniqueString(resourceGroup().id), 'mgt')]"
             },
             "vms": {
-                "adpdc": "[concat('AZ-PDC-VM', parameters('environmentPrefix'))]",
-                "adbdc": "[concat('AZ-BDC-VM', parameters('environmentPrefix'))]",
-                "sql0": "[concat('sqlserver0', parameters('environmentPrefix'))]",
-                "sql1": "[concat('sqlserver1', parameters('environmentPrefix'))]",
-                "sqlw": "[concat('cluster-fsw', parameters('environmentPrefix'))]",
-                "web": "[concat('AZ-WEB-VM', parameters('environmentPrefix'))]",
-                "mgt": "[concat('AZ-MGT-VM', parameters('environmentPrefix'))]"
+                "adpdc": "AZ-PDC-VM",
+                "adbdc": "AZ-BDC-VM",
+                "web": "AZ-WEB-VM",
+                "mgt": "AZ-MGT-VM",
+                "sql0" : "AZ-SQL-VM0",
+                "sql1" : "AZ-SQL-VM1"
             },
             "nics": {
-                "adpdc": "[concat('adPDC-nic', parameters('environmentPrefix'))]",
-                "adbdc": "[concat('adBDC-nic', parameters('environmentPrefix'))]",
-                "sqlw": "[concat('sqlw-nic', parameters('environmentPrefix'))]",
-                "sql0": "[concat('sql0-nic', parameters('environmentPrefix'))]",
-                "sql1": "[concat('sql1-nic', parameters('environmentPrefix'))]",
-                "web": "[concat('WEB-nic', parameters('environmentPrefix'))]",
-                "mgt": "[concat('MGT-nic', parameters('environmentPrefix'))]"
+                "adpdc": "adPDC-nic",
+                "adbdc": "adBDC-nic",
+                "web": "WEB-nic",
+                "mgt": "MGT-nic"
             },
-            "loadBalancers": {
+	    "loadBalancers": {
                 "rdpLBFEName": "rdpLBFE",
-                "sqlLBFEName": "sqlLBFE",
                 "adLBBEName": "adLBBE",
-                "sqlLBBEName": "sqlLBBE",
-                "rdpLBName": "rdpLoadBalancer",
-                "sqlLBName": "sqlLoadBalancer"
+                "rdpLBName": "rdpLoadBalancer"
             },
             "availabilitySets": {
-                "sql": "[concat('sqlAvailabilitySet', parameters('environmentPrefix'))]",
-                "ad": "[concat('adAvailabilitySet', parameters('environmentPrefix'))]",
-                "web": "[concat('webAvailabilitySet', parameters('environmentPrefix'))]"
+                "ad": "[concat('adAvailabilitySet')]",
+                "web": "[concat('webAvailabilitySet')]"
             },
             "publicIPs": {
                 "mgt": "mgtpublicip"
             }
         },
+
       "artifacts": {
         "provisioningHybridworkerUrl": "[concat(parameters('scriptsBaseUrl'),'/provisioningHybridworkers.ps1')]",
         "provisioningStorageAccountsUrl": "[concat(parameters('templatesBaseUrl'),'/storageAccounts.json')]",
