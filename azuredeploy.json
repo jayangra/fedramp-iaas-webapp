@@ -9,6 +9,13 @@
                 "description": "Assign the environment for Azure (Azure Commercial or Gov)"
             }
         },
+	"environmentPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Prefix for environement (production or staging). You can change the allowed values based on your preference."
+            },
+            "defaultValue": ""
+        },
         "keyVaultName": {
             "type": "string",
             "metadata": {
